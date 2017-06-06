@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<BPMS>
+  <system save_date="1/18/2010 10:11:04 AM" theme="default" admin_pass="" multi_queue="False" removal_type="True" />
+  <Team id="100" name="aa" p1="a" p2="a" w="0" l="0" streak="0" />
+  <Team id="101" name="bb" p1="b" p2="b" w="0" l="0" streak="0" />
+  <Team id="102" name="cc" p1="c" p2="c" w="0" l="0" streak="0" />
+  <Team id="103" name="dd" p1="d" p2="d" w="0" l="0" streak="0" />
+  <Team id="104" name="ee" p1="e" p2="e" w="0" l="0" streak="0" />
+  <Team id="105" name="ff" p1="f" p2="f" w="0" l="0" streak="0" />
+  <Team id="106" name="gg" p1="g" p2="g" w="0" l="0" streak="0" />
+  <Team id="107" name="hh" p1="h" p2="h" w="0" l="0" streak="0" />
+  <Team id="108" name="ii" p1="i" p2="i" w="0" l="0" streak="0" />
+  <Team id="109" name="jj" p1="j" p2="j" w="0" l="0" streak="0" />
+  <Team id="110" name="kk" p1="k" p2="k" w="0" l="0" streak="0" />
+  <Team id="111" name="ll" p1="l" p2="l" w="0" l="0" streak="0" />
+  <Team id="118" name="keyboard" p1="qwerty" p2="asdfgh" w="0" l="0" streak="0" />
+</BPMS>

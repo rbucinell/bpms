@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="label2.Text" xml:space="preserve">
+    <value>The above buttons are the following that will add teams to the tournament.
+The two larger buttons are found on the Tournament Setup page of the 
+program, and the smaller one, is found in the List Teams toolbox (File&gt;List
+Teams).
+
+"Queue Us!" will use the associated textbox's to the left of it, to create a new
+team to store (will be availible for both main mode and tournament mode play)
+and will be placed into the tournament in the first available "BYE" slot.
+
+"Back for More" will use the either or both of the associated text boxs to the 
+left of it to search for a team already saved in memory, and will place that 
+team into the tournament in the first available "BYE" slot.
+
+"Queue" button is found in the Team List Toolbox. Depending on the mode of 
+the program it will either queue a team up for normal play if in main mode, or
+if in tournament mode it will place the highlighted team into the tournament in 
+the frist available "BYE" slot.
+</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>There are four settings, manual, input order, rating, and 
+random that you can choose from the dropdown box.
+
+Manual: The arrow keys are enabled to allow users to 
+move a team up or down to customize the seeding process
+
+Input Order: The arrow keys are disabled, and the teams
+will be seeded in the order they are inputed.
+
+Rating: The arrow keys are disabled, and the seeding
+numbers are turned to dashes. This is because seeding will
+be based on the teams win percentage. Ties will be sorted
+randomly
+
+Random: The arrow keys are disabled, and the seeding
+numbers will turn to ?'s. The teams will be random ly placed
+into the seeds randomly</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Default value of 8, when this combobox is changed
+the size of the tournament will change, current support
+up to a 16 team tournament. When the user selects a
+new size, it will truncate or expand the list on the right
+side of the screen to allocate the proper number of slots.</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>The display above will allow you to edit the team's 
+presence and seeding in the tournament.
+
+#   - Is the current seed the team is in.
+        *Note: this number can change to a '-' or '?'
+         see tournament settings for an explination*
+
+[X] - the red X button will NOT delete the team. it will
+        only remove the team from the tournament
+
+[__] - the white textbox will display the team in
+         the current position
+
+[V]  - the down arrow key will  move the team in the 
+         current seed down one position, pushing the 
+         team below it up one position.
+
+[Λ] - the up arrow key will move the team in the 
+        current seed up one position, pushing the team
+        above it down one position</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        AAABAAEAMDAAAAEAIACoJQAAFgAAACgAAAAwAAAAYAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAmf8AAKP/AACt/wAAuP8AAML/AADM/wAA
+        1v8AAOD/AADr/wAA9f8AAP//AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AACZ/wAAov8AAKr/AACy/wAA
+        u/8AAMT/AADM/wAA1P8AAN3/AADm/wAA7v8AAPb/AAD//wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AACZ/wAA
+        ov8AAKr/AACy/wAAu/8AAMT/AADM/wAA1P8AAN3/AADm/wAA7v8AAPb/AAD//wAAAP8AAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAD/AACZ/wAAov8AAKr/AACy/wAAu/8AAMT/AADM/wAA1P8AAN3/AADm/wAA7v8AAPb/AAD//wAA
+        AP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAD/AACZ/wAAov8AAKr/AACy/wAAu/8AAMT/AADM/wAA1P8AAN3/AADm/wAA
+        7v8AAPb/AAD//wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AACZ/wAAov8AAKr/AACy/wAAu/8AAMT/AADM/wAA
+        1P8AAN3/AADm/wAA7v8AAPb/AAD//wAAAP8AAAAAAAAAAAAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AAAA/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AACZ/wAAov8AAKr/AACy/wAA
+        u/8AAMT/AADM/wAA1P8AAN3/AADm/wAA7v8AAPb/AAD//wAAAP8AAAAAAAAA/wAAmf8AAKP/AACt/wAA
+        uP8AAML/AADM/wAA1v8AAOD/AADr/wAA9f8AAP//AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AACZ/wAA
+        ov8AAKr/AACy/wAAu/8AAMT/AADM/wAA1P8AAN3/AADm/wAA7v8AAPb/AAD//wAAAP8AAAD/AACZ/wAA
+        ov8AAKr/AACy/wAAu/8AAMT/AADM/wAA1P8AAN3/AADm/wAA7v8AAPb/AAD//wAAAP8AAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAD/AACZ/wAAov8AAKr/AACy/wAAu/8AAMT/AADM/wAA1P8AAN3/AADm/wAA7v8AAPb/AAD//wAA
+        AP8AAAD/AACZ/wAAov8AAKr/AACy/wAAu/8AAMT/AADM/wAA1P8AAN3/AADm/wAA7v8AAPb/AAD//wAA
+        AP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAP8AAJn/AACg/wAAqP8AAK//AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AADi/wAA
+        6f8AAPD/AAD4/wAA//8AAAD/AACZ/wAAov8AAKr/AACy/wAAu/8AAMT/AADM/wAA1P8AAN3/AADm/wAA
+        7v8AAPb/AAD//wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAJn/AACg/wAAAP8AAAD/AAAA/wAAvf8AAMX/AADM/wAA
+        0/8AAAD/AAAA/wAAAP8AAPD/AAD4/wAA//8AAAD/AACZ/wAAov8AAKr/AACy/wAAu/8AAMT/AADM/wAA
+        1P8AAN3/AADm/wAA7v8AAPb/AAD//wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAJn/AACg/wAAqP8AAK//AAC2/wAA
+        vf8AAMX/AADM/wAA0/8AANv/AADi/wAAAP8AAAD/AAAA/wAA//8AAAD/AACZ/wAAov8AAKr/AACy/wAA
+        u/8AAMT/AADM/wAA1P8AAN3/AADm/wAA7v8AAPb/AAD//wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAJn/AACg/wAA
+        qP8AAK//AAC2/wAAvf8AAMX/AADM/wAA0/8AANv/AADi/wAA6f8AAPD/AAD4/wAA//8AAAD/AACZ/wAA
+        ov8AAKr/AACy/wAAu/8AAMT/AADM/wAA1P8AAN3/AADm/wAA7v8AAPb/AAD//wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AP8AAJn/AACg/wAAqP8AAK//AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA6f8AAPD/AAD4/wAA
+        //8AAAD/AACZ/wAAov8AAKr/AACy/wAAu/8AAMT/AADM/wAA1P8AAN3/AADm/wAA7v8AAPb/AAD//wAA
+        AP8AAKP/AACt/wAAuP8AAML/AADM/wAA1v8AAOD/AADr/wAA9f8AAP//AAAA/wAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAA/wAAmf8AAJn/AAAA/wAAAP8AAAD/AAAA/wAAvf8AAMX/AADM/wAA0/8AANv/AAAA/wAA
+        AP8AAAD/AAAA/wAA//8AAP//AAAA/wAAov8AAKr/AACy/wAAu/8AAMT/AADM/wAA1P8AAN3/AADm/wAA
+        7v8AAPb/AAD//wAAAP8AAKr/AACy/wAAu/8AAMT/AADM/wAA1P8AAN3/AADm/wAA7v8AAPb/AAD//wAA
+        AP8AAAAAAAAAAAAAAAAAAAAAAAAA/wAAmf8AAJn/AAAA/wAAqP8AAK//AAC2/wAAvf8AAMX/AADM/wAA
+        0/8AANv/AADi/wAA6f8AAPD/AAAA/wAAAP8AAP//AAAA/wAAqP8AAK//AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AADi/wAA6f8AAPD/AAD4/wAA//8AAAD/AACy/wAAu/8AAMT/AADM/wAA1P8AAN3/AADm/wAA
+        7v8AAPb/AAD//wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAA/wAAmf8AAJn/AACg/wAAqP8AAK//AAC2/wAA
+        vf8AAMX/AADM/wAA0/8AANv/AADi/wAA6f8AAPD/AAD4/wAA//8AAP//AAAA/wAAAP8AAAD/AAAA/wAA
+        vf8AAMX/AADM/wAA0/8AAAD/AAAA/wAAAP8AAPD/AAD4/wAA//8AAAD/AACy/wAAu/8AAMT/AADM/wAA
+        1P8AAN3/AADm/wAA7v8AAPb/AAD//wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAA/wAAmf8AAJn/AAAA/wAA
+        AP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA//8AAP//AAAA/wAA
+        qP8AAK//AAC2/wAAvf8AAMX/AADM/wAA0/8AANv/AADi/wAAAP8AAAD/AAAA/wAA//8AAAD/AACy/wAA
+        u/8AAMT/AADM/wAA1P8AAN3/AADm/wAA7v8AAPb/AAD//wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAA/wAA
+        AP8AAAD//////////////////////////////////////////////////////////////////////wAA
+        AP8AAAD/AAAA/wAAqP8AAK//AAC2/wAAvf8AAMX/AADM/wAA0/8AANv/AADi/wAA6f8AAPD/AAD4/wAA
+        //8AAAD/AACy/wAAu/8AAMT/AADM/wAA1P8AAN3/AADm/wAA7v8AAPb/AAD//wAAAP8AAAAAAAAAAAAA
+        AAAAAAD/////////////////////////////////////////////////////////////////////////
+        /////////////////////////////wAAAP8AAK//AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        6f8AAPD/AAD4/wAA//8AAAD/AACy/wAAu/8AAMT/AADM/wAA1P8AAN3/AADm/wAA7v8AAPb/AAD//wAA
+        AP8AAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8AAAD/////////////////////////////////////////
+        /////////////////////////////wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAvf8AAMX/AADM/wAA
+        0/8AANv/AAAA/wAAAP8AAAD/AAAA/wAA//8AAP//AAAA/wAAu/8AAMT/AADM/wAA1P8AAN3/AADm/wAA
+        7v8AAPb/AAD//wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAmf8AAJn/AAAA/wAAqP8AAK//AAC2/wAA
+        vf8AAMX/AADM/wAA0/8AANv/AADi/wAA6f8AAPD/AAAA/wAAAP8AAP//AAAA/wAAu/8AAMT/AADM/wAA
+        1P8AAN3/AADm/wAA7v8AAPb/AAD//wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAJn/AACg/wAA
+        qP8AAK//AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AADi/wAA6f8AAPD/AAAA/wAAmf8AAJn/AACg/wAA
+        qP8AAK//AAC2/wAAvf8AAMX/AADM/wAA0/8AANv/AADi/wAA6f8AAPD/AAD4/wAA//8AAP//AAAA/wAA
+        AP8AAAD/AAAA/wAAAP8AAAD/AADi/wAA6f8AAPD/AAD4/wAA//8AAAD/AAAAAAAAAAAAAAAAAAAAAAAA
+        AP8AAJn/AACg/wAAAP8AAAD/AAAA/wAAvf8AAMX/AADM/wAA0/8AAAD/AAAA/wAAAP8AAPD/AAAA/wAA
+        mf8AAJn/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        //8AAP//AAAA/wAAvf8AAMX/AADM/wAA0/8AAAD/AAAA/wAAAP8AAPD/AAD4/wAA//8AAAD/AAAAAAAA
+        AAAAAAAAAAAAAAAAAP8AAJn/AACg/wAAqP8AAK//AAC2/wAAvf8AAMX/AADM/wAA0/8AANv/AADi/wAA
+        AP8AAAD/AAAA/wAAAP8AAAD/////////////////////////////////////////////////////////
+        /////////////wAAAP8AAAD/AAAA/wAAvf8AAMX/AADM/wAA0/8AANv/AADi/wAAAP8AAAD/AAAA/wAA
+        //8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAP8AAJn/AACg/wAAqP8AAK//AAC2/wAAvf8AAMX/AADM/wAA
+        0/8AANv/AADi/wAA6f8AAAD/////////////////////////////////////////////////////////
+        /////////////////////////////////////////////wAAAP8AAMX/AADM/wAA0/8AANv/AADi/wAA
+        6f8AAPD/AAD4/wAA//8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAP8AAJn/AACg/wAAqP8AAK//AAAA/wAA
+        AP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA6f8AAPD/AAAA/wAAAP8AAAD/////////////////////////
+        /////////////////////////////////////////////wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AAAA/wAA6f8AAPD/AAD4/wAA//8AAAD/AAAAAAAAAAAAAAAAAAAA/wAAmf8AAJn/AAAA/wAA
+        AP8AAAD/AAAA/wAAvf8AAMX/AADM/wAA0/8AANv/AAAA/wAAAP8AAAD/AAAA/wAA//8AAP//AAAA/wAA
+        AP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        vf8AAMX/AADM/wAA0/8AANv/AAAA/wAAAP8AAAD/AAAA/wAA//8AAP//AAAA/wAAAAAAAAAAAAAA/wAA
+        mf8AAJn/AAAA/wAAqP8AAK//AAC2/wAAvf8AAMX/AADM/wAA0/8AANv/AADi/wAA6f8AAPD/AAAA/wAA
+        AP8AAP//AAAA/wAAoP8AAKj/AACv/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAmf8AAJn/AAAA/wAA
+        qP8AAK//AAC2/wAAvf8AAMX/AADM/wAA0/8AANv/AADi/wAA6f8AAPD/AAAA/wAAAP8AAP//AAAA/wAA
+        AAAAAAAAAAAA/wAAmf8AAJn/AACg/wAAqP8AAK//AAC2/wAAvf8AAMX/AADM/wAA0/8AANv/AADi/wAA
+        6f8AAPD/AAD4/wAA//8AAP//AAAA/wAAoP8AAAD/AAAA/wAAAP8AAL3/AADF/wAAzP8AANP/AAAA/wAA
+        mf8AAJn/AACg/wAAqP8AAK//AAC2/wAAvf8AAMX/AADM/wAA0/8AANv/AADi/wAA6f8AAPD/AAD4/wAA
+        //8AAP//AAAA/wAAAAAAAAAAAAAA/wAAmf8AAJn/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA//8AAP//AAAA/wAAoP8AAKj/AACv/wAAtv8AAL3/AADF/wAA
+        zP8AANP/AAAA/wAAmf8AAJn/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AAAA/wAA//8AAP//AAAA/wAAAAAAAAAAAAAA/wAAAP8AAAD/////////////////////////
+        /////////////////////////////////////////////wAAAP8AAAD/AAAA/wAAoP8AAKj/AACv/wAA
+        tv8AAL3/AADF/wAAzP8AANP/AAAA/wAAAP8AAAD/////////////////////////////////////////
+        /////////////////////////////wAAAP8AAAD/AAAA/wAAAAAAAAD/////////////////////////
+        /////////////////////////////////////////////////////////////////////////////wAA
+        AP8AAKj/AACv/wAAAP8AAAD/AAAA/wAAAP8AAAD/////////////////////////////////////////
+        /////////////////////////////////////////////////////////////wAAAP8AAAAAAAAA/wAA
+        AP8AAAD//////////////////////////////////////////////////////////////////////wAA
+        AP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAL3/AADF/wAAzP8AANP/AAAA/wAAAP8AAAD/////////
+        /////////////////////////////////////////////////////////////wAAAP8AAAD/AAAA/wAA
+        AAAAAAAAAAAAAAAAAP8AAJn/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AAAA/wAAAP8AAJn/AACZ/wAAAP8AAKj/AACv/wAAtv8AAL3/AADF/wAAzP8AANP/AADb/wAA
+        4v8AAOn/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAJn/AACg/wAAqP8AAK//AAC2/wAAvf8AAMX/AADM/wAA
+        0/8AANv/AADi/wAAAP8AAAD/AAAA/wAAAP8AAJn/AACZ/wAAoP8AAKj/AACv/wAAtv8AAL3/AADF/wAA
+        zP8AANP/AADb/wAA4v8AAOn/AADw/wAA+P8AAP//AAD//wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAJn/AACg/wAAqP8AAK//AAC2/wAA
+        vf8AAMX/AADM/wAA0/8AANv/AADi/wAA6f8AAPD/AAD4/wAAAP8AAJn/AACZ/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAP//AAD//wAAAP8AAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP8AAJn/AACg/wAA
+        qP8AAK//AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA6f8AAPD/AAD4/wAAAP8AAAD/AAAA////
+        //////////////////////////////////////////////////////////////////8AAAD/AAAA/wAA
+        AP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAA
+        mf8AAJn/AAAA/wAAAP8AAAD/AAAA/wAAvf8AAMX/AADM/wAA0/8AANv/AAAA/wAAAP8AAAD/AAAA////
+        ////////////////////////////////////////////////////////////////////////////////
+        //////////////////8AAAD/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAA/wAAmf8AAJn/AAAA/wAAqP8AAK//AAC2/wAAvf8AAMX/AADM/wAA0/8AANv/AADi/wAA
+        6f8AAPD/AAAA/wAAAP8AAAD/AAAA////////////////////////////////////////////////////
+        //////////////////8AAAD/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAmf8AAJn/AACg/wAAqP8AAK//AAC2/wAAvf8AAMX/AADM/wAA
+        0/8AANv/AADi/wAA6f8AAPD/AAD4/wAA//8AAP//AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAmf8AAJn/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA//8AAP//AAAA/wAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8AAAD/////////
+        /////////////////////////////////////////////////////////////wAAAP8AAAD/AAAA/wAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/////////
+        ////////////////////////////////////////////////////////////////////////////////
+        /////////////wAAAP8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAA/wAAAP8AAAD/////////////////////////////////////////////////////////
+        /////////////wAAAP8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAA
+        AP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD4AP/////yBPAAf/////IE4AA/////
+        8gTgAD/////yBOAAP/////IE4AA/////8gTgADAB///yBOAAIAD///IE4AAAAH//8gTgAAAAf//yBMAA
+        AAB///IEwAAAAH//8gTAAAAAf//yBMAAAAAAH/IEwAAAAAAP8gSAAAAAAAfyBIAAAAAAB/IEgAAAAAAH
+        8gSAAAAAAAfyBIAAAAAAB/IEAAAAAAAH8gSAAAAAAAfyBOAAAAAAB/IEwAAAAAAD8gTAAAAAAAPyBMAA
+        AAAAA/IEwAAAAAAD8gTAAAAAAAPyBIAAAAAAAfIEgAAAAAAB8gSAAAAAAAHyBIAAAAAAAfIEgAAAAAAB
+        8gQAAAAAAADyBIAAAAAAAfIEwAAAAAAP8gTAAAAAD//yBMAAAAAP//IEwAAAAA//8gSAAAAAB//yBIAA
+        AAAP//IEgAAAAH//8gSAAA/////yBIAAD/////IEAAAH////8gSAAA/////yBPAAf/////IE////////
+        8gQ=
+</value>
+  </data>
+</root>
