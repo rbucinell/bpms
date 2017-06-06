@@ -41,7 +41,7 @@ namespace BPMS {
         /// <param name="p1">First Teamate</param>
         /// <param name="p2">Second Teamate</param>
         public Team(string p1, string p2) {
-            id = PMSmain.teamIDs++;
+            id = BPMSMain.teamIDs++;
             player1 = p1;
             player2 = p2;
             currentStreak = 0;
@@ -65,9 +65,9 @@ namespace BPMS {
         public static Team FromXML(int xId, string xName, string xP1, string xP2, int wins, int losses, int streak)
         {
             Team t = new Team(xP1, xP2);
-            if( xId >= PMSmain.teamIDs )
+            if( xId >= BPMSMain.teamIDs )
             {
-                PMSmain.teamIDs = xId + 1;
+                BPMSMain.teamIDs = xId + 1;
             }
             t.id = xId;
             t.currentStreak = 0;
@@ -167,7 +167,7 @@ namespace BPMS {
         public void winGame() {
             if( !wonPrevious ) {
                 currentStreak = 1;
-                timeOnTable = PMSmain.gameLength();
+                timeOnTable = BPMSMain.gameLength();
                 wonPrevious = true;
             } else {
                 currentStreak++;
@@ -198,7 +198,7 @@ namespace BPMS {
                 if ( currentStreak > longestStreak ) {
                     longestStreak = currentStreak;
                 }
-                timeOnTable += PMSmain.gameLength();
+                timeOnTable += BPMSMain.gameLength();
                 wonPrevious = true;
             }
             rememberStreak = currentStreak;
@@ -314,14 +314,19 @@ namespace BPMS {
             }
         }
 
-        public string TeamNameSimple() {
-            if ( TeamName != null && TeamName != " " && TeamName != "_") {
-                return TeamName;
-            } else {
-                return playersDisplay();
-            }
+        /// <summary>
+        /// Simple Representation of Team Display
+        /// </summary>
+        /// <returns></returns>
+        public string TeamNameSimple()
+        {
+            return (TeamName != null && TeamName != " " && TeamName != "_") ? TeamName : playersDisplay();
         }
 
+        /// <summary>
+        /// Displays the Team as a combination of the players
+        /// </summary>
+        /// <returns></returns>
         public string TeamPlayersSimple() {
             return playersDisplay();
         }

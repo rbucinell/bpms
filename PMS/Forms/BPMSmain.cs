@@ -1,6 +1,4 @@
 ﻿using BPMS.Code;
-///view reports for other teams (search or top10);
-///Tournament Mode!
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +7,6 @@ using System.Windows.Forms;
 
 namespace BPMS
 {
-
     /// <summary>
     /// Delete type Enum, for different deletion option of queued teams
     /// </summary>
@@ -20,7 +17,7 @@ namespace BPMS
         ID
     };
 
-    public partial class PMSmain : Form
+    public partial class BPMSMain : Form
     {
         /// <summary> Main Variablles </summary>
         public static int teamIDs = 100;
@@ -54,7 +51,7 @@ namespace BPMS
         /// Constructor for new Main Gui
         /// </summary>
         /// <param name="save">Path of the save file to be read from and written to</param>
-        public PMSmain(string save)
+        public BPMSMain(string save)
         {
 
             //Create Data

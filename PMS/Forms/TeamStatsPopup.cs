@@ -12,7 +12,7 @@ namespace BPMS.Forms {
         public TeamStatsPopup( Team t ) {
             InitializeComponent();
 
-            this.Name = " Stats Block";
+            Name = " Stats Block";
             id_textbox.Text = t.Id + "";
             if (t.TeamName == "" || t.TeamName == null) {
                 name_textbox.Text = "<< No Team Name >>";
@@ -33,7 +33,7 @@ namespace BPMS.Forms {
         }
 
         private void ok_button_click( object sender, EventArgs e ) {
-            this.Dispose();
+            Dispose();
         }
     }
 }

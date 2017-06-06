@@ -16,7 +16,7 @@ namespace BPMS {
         }
         
         private void okClose( object sender, EventArgs e ) {
-            this.Dispose();
+            Dispose();
         }
     }
 }

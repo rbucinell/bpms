@@ -25,13 +25,13 @@ namespace BPMS {
 
         private void OKisClicked(object sender, EventArgs e) {
             myPassword = getPassword();
-            this.Close();
+            Close();
         }
 
         private void CancelisClicked(object sender, EventArgs e) {
             myPassword = "";
             myFunction = "cancelled";
-            this.Close();
+            Close();
         }
     }
 }

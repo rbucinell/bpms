@@ -25,7 +25,7 @@ namespace BPMS {
         public void timesUpHanddler( object sender, EventArgs e ) {
             Timer timer = (Timer)sender;
             t.Stop();
-            this.Dispose();
+            Dispose();
         }
     }
 }

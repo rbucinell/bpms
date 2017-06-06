@@ -15,7 +15,7 @@ namespace BPMS {
         #region Configuration member variables
         public TourneySeed[] seedObjects = new TourneySeed[16];
 
-        private PMSmain myParent;
+        private BPMSMain myParent;
         private TabPage setupPage, playPage;
 
         // Total number of brackets in the tournement
@@ -44,7 +44,7 @@ namespace BPMS {
 
         /// <summary> Default Constructor for the Tournament Form
         /// </summary>
-        public Tourney(PMSmain parent) {
+        public Tourney(BPMSMain parent) {
             InitializeComponent();
             allMatchups = new TourneyMatchUp[] {tourneyMatchUp0, tourneyMatchUp1, tourneyMatchUp2,
                                                 tourneyMatchUp3, tourneyMatchUp4, tourneyMatchUp5,
@@ -91,11 +91,11 @@ namespace BPMS {
         private void createTourneySeedObjects() {
             for( int i = 1; i <= 16; i++ ) {
                 if (i == 1) {
-                    seedObjects[0] = new TourneySeed( (Button)this.Controls.Find( "removeButtonSeed" + i, true )[0], (Button)this.Controls.Find( "moveDownButton" + i, true )[0], null, (TeamTextBox)this.Controls.Find( "teamSeedBox" + i, true )[0], 1, numBrackets );
+                    seedObjects[0] = new TourneySeed( (Button)Controls.Find( "removeButtonSeed" + i, true )[0], (Button)Controls.Find( "moveDownButton" + i, true )[0], null, (TeamTextBox)Controls.Find( "teamSeedBox" + i, true )[0], 1, numBrackets );
                 } else if (i == 16) {
-                    seedObjects[15] = new TourneySeed( (Button)this.Controls.Find( "removeButtonSeed" + i, true )[0], null, (Button)this.Controls.Find( "moveupButton" + i, true )[0], (TeamTextBox)this.Controls.Find( "teamSeedBox" + i, true )[0], 16, numBrackets );
+                    seedObjects[15] = new TourneySeed( (Button)Controls.Find( "removeButtonSeed" + i, true )[0], null, (Button)Controls.Find( "moveupButton" + i, true )[0], (TeamTextBox)Controls.Find( "teamSeedBox" + i, true )[0], 16, numBrackets );
                 } else {
-                    seedObjects[i - 1] = new TourneySeed( (Button)this.Controls.Find( "removeButtonSeed" + i, true )[0], (Button)this.Controls.Find( "moveDownButton" + i, true )[0], (Button)this.Controls.Find( "moveupButton" + i, true )[0], (TeamTextBox)this.Controls.Find( "teamSeedBox" + i, true )[0], i, numBrackets );
+                    seedObjects[i - 1] = new TourneySeed( (Button)Controls.Find( "removeButtonSeed" + i, true )[0], (Button)Controls.Find( "moveDownButton" + i, true )[0], (Button)Controls.Find( "moveupButton" + i, true )[0], (TeamTextBox)Controls.Find( "teamSeedBox" + i, true )[0], i, numBrackets );
                     if (i == numBrackets) {
                         seedObjects[i - 1].DownButton.Visible = false;
                     }
@@ -145,17 +145,17 @@ namespace BPMS {
                     seedObjects[i - 1].hideMe();
                 }
                 if (i == 1) {
-                    seedObjects[0] = new TourneySeed( (Button)this.Controls.Find( "removeButtonSeed" + i, true )[0], (Button)this.Controls.Find( "moveDownButton" + i, true )[0], null, (TeamTextBox)this.Controls.Find( "teamSeedBox" + i, true )[0], 1, numBrackets );
+                    seedObjects[0] = new TourneySeed( (Button)Controls.Find( "removeButtonSeed" + i, true )[0], (Button)Controls.Find( "moveDownButton" + i, true )[0], null, (TeamTextBox)Controls.Find( "teamSeedBox" + i, true )[0], 1, numBrackets );
                 } else if (i == 16) {
-                    seedObjects[15] = new TourneySeed( (Button)this.Controls.Find( "removeButtonSeed" + i, true )[0], null, (Button)this.Controls.Find( "moveupButton" + i, true )[0], (TeamTextBox)this.Controls.Find( "teamSeedBox" + i, true )[0], 16, numBrackets );
+                    seedObjects[15] = new TourneySeed( (Button)Controls.Find( "removeButtonSeed" + i, true )[0], null, (Button)Controls.Find( "moveupButton" + i, true )[0], (TeamTextBox)Controls.Find( "teamSeedBox" + i, true )[0], 16, numBrackets );
                 } else if (i == numBrackets) {
-                    seedObjects[i - 1] = new TourneySeed( (Button)this.Controls.Find( "removeButtonSeed" + i, true )[0], null, (Button)this.Controls.Find( "moveupButton" + i, true )[0], (TeamTextBox)this.Controls.Find( "teamSeedBox" + i, true )[0], 16, numBrackets );
+                    seedObjects[i - 1] = new TourneySeed( (Button)Controls.Find( "removeButtonSeed" + i, true )[0], null, (Button)Controls.Find( "moveupButton" + i, true )[0], (TeamTextBox)Controls.Find( "teamSeedBox" + i, true )[0], 16, numBrackets );
                 } else {
                     seedObjects[i - 1] = new TourneySeed(
-                        (Button)this.Controls.Find( "removeButtonSeed" + i, true )[0],
-                        (Button)this.Controls.Find( "moveDownButton" + i, true )[0],
-                        (Button)this.Controls.Find( "moveupButton" + i, true )[0],
-                        (TeamTextBox)this.Controls.Find( "teamSeedBox" + i, true )[0],
+                        (Button)Controls.Find( "removeButtonSeed" + i, true )[0],
+                        (Button)Controls.Find( "moveDownButton" + i, true )[0],
+                        (Button)Controls.Find( "moveupButton" + i, true )[0],
+                        (TeamTextBox)Controls.Find( "teamSeedBox" + i, true )[0],
                         i, numBrackets );
                 }
                 
@@ -188,7 +188,7 @@ namespace BPMS {
             Button theSender = (Button)sender;
             string name = theSender.Name.Replace( "moveUpButton", "" );
             int position = Int32.Parse( name );
-            this.increaseSeed(position);
+            increaseSeed(position);
         }
 
         /// <summary>
@@ -201,7 +201,7 @@ namespace BPMS {
             Button theSender = (Button)sender;
             string name = theSender.Name.Replace( "moveDownButton", "" );
             int position = Int32.Parse( name );
-            this.decreaseSeed( position );
+            decreaseSeed( position );
         }
 
         /// <summary>
@@ -731,7 +731,7 @@ namespace BPMS {
             for (int i = 0; i < firstRound.Length; i++)
             {
                 firstRound[i].resetMatch();//(firstRound[i].RedTeam, firstRound[i].BlueTeam);
-                firstRound[i].Parent = this.playTab;
+                firstRound[i].Parent = playTab;
                 firstRound[i].Visible = true;
                 
             }
@@ -744,7 +744,7 @@ namespace BPMS {
             linkAllMatchUps();
 
             champions.Visible = false;
-            champions.Parent = this.playTab;
+            champions.Parent = playTab;
             champions.Location = new Point(574, 217);
         }
 
@@ -764,7 +764,7 @@ namespace BPMS {
             linkAllMatchUps();
 
             champions.Visible = false;
-            champions.Parent = this.playTab;
+            champions.Parent = playTab;
             champions.Location = new Point( 574, 217 );
         }
 
@@ -779,14 +779,14 @@ namespace BPMS {
             tourneyMatchUp6.Visible = false;
             tourneyMatchUp7.Visible = false;
 
-            tourneyMatchUp0.Parent = this.playTab;
-            tourneyMatchUp1.Parent = this.playTab;
-            tourneyMatchUp2.Parent = this.playTab;
-            tourneyMatchUp3.Parent = this.playTab;
-            tourneyMatchUp4.Parent = this.playTab;
-            tourneyMatchUp5.Parent = this.playTab;
-            tourneyMatchUp6.Parent = this.playTab;
-            tourneyMatchUp7.Parent = this.playTab;
+            tourneyMatchUp0.Parent = playTab;
+            tourneyMatchUp1.Parent = playTab;
+            tourneyMatchUp2.Parent = playTab;
+            tourneyMatchUp3.Parent = playTab;
+            tourneyMatchUp4.Parent = playTab;
+            tourneyMatchUp5.Parent = playTab;
+            tourneyMatchUp6.Parent = playTab;
+            tourneyMatchUp7.Parent = playTab;
 
             tourneyMatchUp0 = new TourneyMatchUp();
             tourneyMatchUp1 = new TourneyMatchUp();
@@ -836,7 +836,7 @@ namespace BPMS {
                 if( t.Visible == false ) {
                     t.Visible = true;
                 }
-                t.Parent = this.playTab;
+                t.Parent = playTab;
             }
             
             if( firstRound.Length == 8 ) {
@@ -863,7 +863,7 @@ namespace BPMS {
         private void setMatchupLocations() {
             
             foreach( TourneyMatchUp t in allMatchups ) {
-                t.Parent = this.playTab;
+                t.Parent = playTab;
                 t.MyParent = this;
             }
             tourneyMatchUp0.Location = getLocationInfoForControl( 4, 0 );

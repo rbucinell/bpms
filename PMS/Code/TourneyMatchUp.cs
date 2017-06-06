@@ -75,9 +75,9 @@ namespace BPMS {
 
             //Sets Design information about Panel
             constructTourneyMatchUp();
-            
+
             //default to hide the panel until ready
-            this.Visible = false;
+            Visible = false;
         }
 
         /// <summary> Private constructor helper to setup all components
@@ -100,9 +100,9 @@ namespace BPMS {
         /// <summary> Constructs all of the controls
         /// </summary>
         private void constructTourneyMatchUp() {
-            this.BorderStyle = BorderStyle.Fixed3D;
-            this.BackColor = Color.Gray;
-            this.Size = new Size( MATCH_HEIGHT, MATCH_WIDTH );
+            BorderStyle = BorderStyle.Fixed3D;
+            BackColor = Color.Gray;
+            Size = new Size( MATCH_HEIGHT, MATCH_WIDTH );
             
             redZone.Parent = this;
             redZone.Location = new Point( redZone.Parent.Location.X, redZone.Parent.Location.Y );
@@ -174,7 +174,8 @@ namespace BPMS {
             //sets flag that signal system that object has been modified recently
             recentlyModified = true;
            
-            switch( this.State ){
+            switch( State )
+            {
                 case MatchState.ByeRound:
                     //Get the winner by default, does not affect their win/loss record
                     Winner = (RedTeam == null) ? BlueTeam : RedTeam;
@@ -194,9 +195,9 @@ namespace BPMS {
                         RedTeam.undoLoss();
                     }
                     //Clear the winner 
-                    this.Winner = null;
+                    Winner = null;
                     //set the state back to no victor found
-                    this.State = MatchState.NoVictor;
+                    State = MatchState.NoVictor;
                     break;
                 case MatchState.NoVictor:
                 case MatchState.Empty:
@@ -248,7 +249,7 @@ namespace BPMS {
         /// </summary>
         [Obsolete("rewritten for better usage, use resetMatch()")]
         public void reset( Team red, Team blue ) {
-            if (this.State == MatchState.VictorFound) {
+            if ( State == MatchState.VictorFound) {
                 undoCompletion();
             }
             //RedTeam = red;
@@ -266,7 +267,7 @@ namespace BPMS {
         /// <summary> Calculates the state of the matchup based on entrants and winners
         /// </summary>
         private void setState() {
-            if (this.RedTeam == null && this.BlueTeam == null && this.Winner == null) {
+            if ( RedTeam == null && BlueTeam == null && Winner == null) {
                 State = MatchState.Empty;
             } else if ((RedTeam == null && BlueTeam != null) || (RedTeam != null && BlueTeam == null)) {
                 if (RedTeam != null) {
@@ -294,42 +295,42 @@ namespace BPMS {
             {
                 if (b.Name == "blueWin")
                 {
-                    this.Winner = this.BlueTeam;
-                    this.updateTeams(this.BlueTeam, this.RedTeam);
+                    Winner = BlueTeam;
+                    updateTeams(BlueTeam, RedTeam);
                 }
                 else
                 {
-                    this.Winner = this.RedTeam;
-                    this.updateTeams(this.RedTeam, this.BlueTeam);
+                    Winner = RedTeam;
+                    updateTeams(RedTeam, BlueTeam);
                 }
-                this.State = MatchState.VictorFound;
+                State = MatchState.VictorFound;
                 
                 //If either team wins, check to see if its the last game
-                if (isFinalsMatch || this.Name == "tourneyMatchUp14")
+                if (isFinalsMatch || Name == "tourneyMatchUp14")
                 {
-                    MyParent.declareWinner(this.Winner);
+                    MyParent.declareWinner(Winner);
                 }
                 else
                 {
-                    NextMatch.addTeamToMatchUp(this.Winner);
+                    NextMatch.addTeamToMatchUp(Winner);
                 }
 
             //else revert
             }else{
                 if( NextMatch != null)
-                    NextMatch.removeTeamFromMatchUp( this.Winner );
-                this.undoCompletion();
-                this.Winner = null;
-                this.State = MatchState.NoVictor;
+                    NextMatch.removeTeamFromMatchUp(Winner);
+                undoCompletion();
+                Winner = null;
+                State = MatchState.NoVictor;
             }
             recentlyModified = true;
-            this.redrawComponents();
+            redrawComponents();
         }
 
         /// <summary> undo's the winnings, if the team had one a game
         /// </summary>
         private void undoCompletion() {
-            if (this.State == MatchState.VictorFound) {
+            if ( State == MatchState.VictorFound) {
                 if (Winner == RedTeam) {
                     RedTeam.undoWin();
                     BlueTeam.undoLoss();
@@ -337,7 +338,7 @@ namespace BPMS {
                     BlueTeam.undoWin();
                     RedTeam.undoLoss();
                 }
-                this.Winner = null;
+                Winner = null;
             }
             
         }
@@ -354,8 +355,8 @@ namespace BPMS {
         /// <summary> Sub routine to add logitch to coloring the panels
         /// </summary>
         public void addTeamToMatchUp( Team t ) {
-            if( this.Visible == false )
-                this.Visible = true;
+            if( Visible == false )
+                Visible = true;
 
             if (RedTeam == null) {
                 RedTeam = t;
@@ -363,10 +364,10 @@ namespace BPMS {
                 redWin.Visible = true;
                 if (BlueTeam != null) {
                     redWin.Enabled = true;
-                    this.State = MatchState.NoVictor;
+                    State = MatchState.NoVictor;
                 } else {
                     redWin.Enabled = false;
-                    this.State = MatchState.ByeRound;
+                    State = MatchState.ByeRound;
                 }
             } else if (BlueTeam == null) {
                 BlueTeam = t;
@@ -374,10 +375,10 @@ namespace BPMS {
                 blueWin.Visible = true;
                 if (RedTeam != null) {
                     blueWin.Enabled = true;
-                    this.State = MatchState.NoVictor;
+                    State = MatchState.NoVictor;
                 } else {
                     blueWin.Enabled = false;
-                    this.State = MatchState.ByeRound;
+                    State = MatchState.ByeRound;
                 }
             }
             recentlyModified = true;
@@ -386,17 +387,17 @@ namespace BPMS {
 
         public void removeTeamFromMatchUp( Team t ) {
             //Little recurusion, hope it works
-            if( this.State == MatchState.VictorFound ) {
+            if( State == MatchState.VictorFound ) {
                 undoCompletion();
-                NextMatch.removeTeamFromMatchUp( this.Winner );
-                this.Winner = null;
+                NextMatch.removeTeamFromMatchUp(Winner);
+                Winner = null;
             }
 
             //clear the team
             if( t == RedTeam ) {
-               this.setMatch( null, BlueTeam );
+                setMatch( null, BlueTeam );
             } else {
-                this.setMatch(RedTeam, null);
+                setMatch(RedTeam, null);
             }
         }
 
@@ -407,9 +408,9 @@ namespace BPMS {
             if (this == null) {
                 return false;
             }
-            if (this.State == MatchState.VictorFound || 
-                this.State == MatchState.ByeRound || 
-                this.State == MatchState.Empty) {
+            if ( State == MatchState.VictorFound ||
+                State == MatchState.ByeRound ||
+                State == MatchState.Empty) {
 
                 return true;
             } else {
@@ -420,10 +421,10 @@ namespace BPMS {
         /// <summary> Clears any winners and all fed teams. Then removes the view
         /// </summary>
         public void clear() {
-            this.Winner = null;
+            Winner = null;
             RedTeam = null;
             BlueTeam = null;
-            this.State = MatchState.Empty;
+            State = MatchState.Empty;
             recentlyModified = true;
             redrawComponents();
         }
@@ -431,7 +432,7 @@ namespace BPMS {
         #region Drawing Functions - Recolor & Design based on state
         private void redrawComponents() {
             if( recentlyModified ) {
-                switch( this.State ) {
+                switch( State ) {
                     case MatchState.ByeRound:
                         if( RedTeam != null ) {
                             drawRedByeRound();

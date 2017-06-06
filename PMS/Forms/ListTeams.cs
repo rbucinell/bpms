@@ -12,23 +12,23 @@ namespace BPMS {
     public partial class ListTeams : Form {
 
         //refrence to the main form
-        PMSmain myParent;
+        BPMSMain myParent;
         //display list
         string[] stringNames;
         
-        public ListTeams( PMSmain parent) {
+        public ListTeams( BPMSMain parent) {
             myParent = parent;
             InitializeComponent();
             configreNamesFromTeamInfo();
             deleteFromListButton.Enabled = false;
             queueFromListButton.Enabled = false;
-            this.Closing += new System.ComponentModel.CancelEventHandler( okButtonClicked );
+            Closing += new System.ComponentModel.CancelEventHandler( okButtonClicked );
             paintMe( myParent.Data.Theme, myParent.myThemeColors );
         }
 
         private void paintMe( string theme, string[] paint ) {
             if( theme == "default"){
-                this.BackColor = SystemColors.Control;
+                BackColor = SystemColors.Control;
                 listActionsResultsBox.BackColor = SystemColors.Control;
                 teamsListBox.BackColor = SystemColors.Window;
                 queueFromListButton.BackColor = Color.ForestGreen;
@@ -43,7 +43,7 @@ namespace BPMS {
                 statsButton.ForeColor = Color.Black;
             }else{
                 int use = (theme == "black") ? 6 : 8;
-                this.BackColor = Color.FromName( paint[use] );
+                BackColor = Color.FromName( paint[use] );
 
                 use = (theme == "tke") ? 6 : 0;
                 listActionsResultsBox.BackColor = Color.FromName( paint[use] );
@@ -71,7 +71,7 @@ namespace BPMS {
 
         private void okButtonClicked( object sender, EventArgs e ) {
             myParent.myListForm = null;
-            this.Dispose();
+            Dispose();
         }
 
 
@@ -157,11 +157,11 @@ namespace BPMS {
             myParent.inputPassword = theform.myPassword;
             string theFunction = theform.myFunction;
             if (myParent.Data.Password == myParent.inputPassword) {
-                PMSmain.passValid = true;
+                BPMSMain.passValid = true;
             } else {
-                PMSmain.passValid = false;
+                BPMSMain.passValid = false;
             }
-            if (PMSmain.passValid) {
+            if (BPMSMain.passValid) {
                 string result = myParent.Data.deleteTeam( getSelectedTeam() );
                 myParent.updateAllViews();
                 myParent.tourneyModeForm.updateTourneySeedObjects();
@@ -219,7 +219,7 @@ namespace BPMS {
             if (queryStats != null) {
                 TeamStatsPopup stats = new TeamStatsPopup( queryStats );
                 stats.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-                stats.Location = new Point( (this.Location.X), (this.Location.Y) );
+                stats.Location = new Point( (Location.X), (Location.Y) );
                 stats.Visible = true;
                 stats.BringToFront();
             }

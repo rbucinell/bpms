@@ -31,7 +31,7 @@ namespace BPMS {
                 }
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault( false );
-                Application.Run( new PMSmain( save_path ) );
+                Application.Run( new BPMSMain( save_path ) );
             }
         }
     }

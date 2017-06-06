@@ -28,7 +28,7 @@ namespace BPMS {
             } else {
                 new_pass_textbox.BackColor = SystemColors.Window;
                 confirm_pass_textbox.BackColor = SystemColors.Window;
-                this.Close();
+                Close();
             }
         }
 
@@ -40,7 +40,7 @@ namespace BPMS {
             pass1 = "";
             pass2 = "";
             myFunction = "";
-            this.Close();
+            Close();
         }
 
         public static string getMd5Hash( string input ) {

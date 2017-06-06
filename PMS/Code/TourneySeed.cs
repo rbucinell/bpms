@@ -18,7 +18,7 @@ namespace BPMS {
 
         public Team Team {
             get { return team; }
-            set { team = value; this.Box.Team = value; }
+            set { team = value; Box.Team = value; }
         }
 
         public TourneySeed( Button c, Button d, Button u, TeamTextBox b, int p, int m ) {
