@@ -1,7 +1,7 @@
 # Beer Pong Managment System (BPMS)
 ### For managing teams in line on a beer pong table at a party.
 
-![Application Screenshot](/PMS/Resources/bpms_ss.jpng?raw=true "BPMS Screenshot")
+![Application Screenshot](PMS/Resources/bpms_ss.png?raw=true "BPMS Screenshot")
 
 A small application I created in college circa the beginning of my first co-op to learn how to use Windows Forms. I have sporadically updated it here and there since then adding new features. 
 
