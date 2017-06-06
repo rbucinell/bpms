@@ -1240,6 +1240,9 @@ namespace BPMS
                 case "tke":
                     force = tKEToolStripMenuItem;
                     break;
+                default:
+                    force = deafaultToolStripMenuItem;
+                    break;
             }
             EventArgs ea = EventArgs.Empty;
             ThemeClicked(force, ea);

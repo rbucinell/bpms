@@ -229,6 +229,7 @@
     <None Include="Resources\8manTourneyBG.bmp" />
     <None Include="Resources\16manTourneyBG.bmp" />
     <None Include="Resources\bpms_ss.png" />
+    <None Include="Resources\BuildDate.txt" />
     <Content Include="Resources\logo.ico" />
     <Content Include="Resources\tournamentLogo.ico" />
     <None Include="Resources\mlbp_wo_border.gif" />
@@ -268,6 +269,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>echo %25date%25 &gt; "$(ProjectDir)\Resources\BuildDate.txt"</PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
