@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Xml;
 using System.IO;
-using BPMS.Code;
+using System.Xml;
+using System.Windows.Forms;
+using System.Collections.Generic;
 
-namespace BPMS {
-
+namespace BPMS
+{
     /// <summary>
     /// Enum for current Mode of the System
     /// </summary>
@@ -64,13 +61,16 @@ namespace BPMS {
 
         /// <summary> Getter and Setter if a password is required to remove </summary>
         public bool PassToRemove { get; set; }
-
-
+        
         public bool RecentSave { get; set; }
+        
         #region Constructors
-        /// <summary>Default Constructor
+        
+        /// <summary>
+        /// Default Constructor
         /// </summary>
-        public SystemData() {
+        public SystemData()
+        {
             setDefaults();
         }
 
@@ -78,13 +78,15 @@ namespace BPMS {
         /// Create a new DataSet and load in data
         /// </summary>
         /// <param name="path">Path of the save file</param>
-        public SystemData( string path ) {
+        public SystemData( string path )
+        {
             setDefaults();
             SaveFile = path;
             loadData();
         }
 
-        /// <summary>Helper method for constructors, to build common materials
+        /// <summary>
+        /// Helper method for constructors, to build common materials
         /// </summary>
         private void setDefaults() {
             Winner = null;
@@ -104,13 +106,15 @@ namespace BPMS {
         #endregion
 
         #region Accessors & Mutators
-        /// <summary> Accessor for all the teams
+        
+        /// <summary>
+        /// Accessor for all the teams
         /// </summary>
-        public List<Team> AllTeams {
+        public List<Team> AllTeams
+        {
             get { return teams; }
         }
-
-
+        
         /// <summary> Accesor for a Team, searching on the team's Id
         /// </summary>
         /// <param name="id">The Teams ID</param>
@@ -128,10 +132,14 @@ namespace BPMS {
         /// </summary>
         /// <param name="name">The Teams Name</param>
         /// <returns>A team from storage</returns>
-        public Team getTeam( String name ){
-            if (name != "" || name != " ") {
-                foreach (Team t in teams) {
-                    if (t.Name == name) {
+        public Team getTeam(string name)
+        {
+            if( name != "" || name != " " )
+            {
+                foreach( Team t in teams )
+                {
+                    if( t.TeamName == name )
+                    {
                         return t;
                     }
                 }
@@ -144,10 +152,13 @@ namespace BPMS {
         /// </summary>
         /// <param name="name">The Teams Name</param>
         /// <returns>true if found</returns>
-        public bool hasTeam( String name ) {
-            if (name != "" || name != " ") {
-                foreach (Team t in teams) {
-                    if (t.Name == name)
+        public bool hasTeam(string name)
+        {
+            if( name != "" || name != " " )
+            {
+                foreach( Team t in teams )
+                {
+                    if( t.TeamName == name )
                         return true;
                 }
             }
@@ -158,10 +169,13 @@ namespace BPMS {
         /// </summary>
         /// <param name="name">The Teams ID</param>
         /// <returns>true if found</returns>
-        public bool hasTeam( int id ) {
-            if (id > 10) {
-                foreach (Team t in teams) {
-                    if (t.Id == id)
+        public bool hasTeam(int id)
+        {
+            if( id > 10 )
+            {
+                foreach( Team t in teams )
+                {
+                    if( t.Id == id )
                         return true;
                 }
             }
@@ -169,7 +183,8 @@ namespace BPMS {
         }
 
 
-        /// <summary>Removes a team from the queue
+        /// <summary>
+        /// Removes a team from the queue
         /// </summary>
         /// <param name="pos">index of the team in queue</param>
         public void removeFromQueue( int pos ) {
@@ -189,60 +204,79 @@ namespace BPMS {
         /// </summary>
         /// <param name="t">The team that you wish to delete</param>
         /// <returns>String of thee report</returns>
-        public string deleteTeam( Team t ) {
-            if( teams.Contains( t )){
+        public string deleteTeam(Team t)
+        {
+            if( teams.Contains(t) )
+            {
                 //remove from the queue if its there
-                if (QueuedTeams.Contains( t )) {
+                if( QueuedTeams.Contains(t) )
+                {
                     Queue<Team> temp = new Queue<Team>();// = inQ;
-                    for (int i = 0; i < QueuedTeams.Count; i++) {
+                    for( int i = 0; i < QueuedTeams.Count; i++ )
+                    {
                         Team deq = QueuedTeams.Dequeue();
-                        if (deq != t)
-                            temp.Enqueue( deq );
+                        if( deq != t )
+                            temp.Enqueue(deq);
                     }
                     QueuedTeams = temp;
                 }
                 //remove it from the tournament
-                for (int i = 0; i < InTourney.Length; i++) {
-                    if (InTourney[i] == t)
+                for( int i = 0; i < InTourney.Length; i++ )
+                {
+                    if( InTourney[i] == t )
                         InTourney[i] = null;
                 }
                 //if its a winner or challenger:
-                if (this.Winner == t) {
-                    this.Winner = this.Challenger;
-                    this.Challenger = (QueuedTeams.Count != 0) ? QueuedTeams.Dequeue() : null;
-                } else if (this.Challenger == t) {
-                    this.Challenger = (QueuedTeams.Count != 0) ? QueuedTeams.Dequeue() : null;
+                if( Winner == t )
+                {
+                    Winner = Challenger;
+                    Challenger = (QueuedTeams.Count != 0) ? QueuedTeams.Dequeue() : null;
+                }
+                else if( Challenger == t )
+                {
+                    Challenger = (QueuedTeams.Count != 0) ? QueuedTeams.Dequeue() : null;
                 }
 
                 //finally remove it for good
-                teams.Remove( t );
+                teams.Remove(t);
                 return "Removed " + t;
-            }else{
+            }
+            else
+            {
                 return "Remove failed! " + t + " Does not exist";
             }
         }
 
-        /// <summary> Adds the contra team to data
+        /// <summary> 
+        /// Adds the contra team to data
         /// </summary>
-        public void addContra() {
-            if ( getTeam( "Contra" ) == null) {
-                Team contra = new Team( "Bill", "Lance" );
-                contra.Name = "Contra";
-                teams.Add( contra );
+        public void AddContraTeam()
+        {
+            if( getTeam("Contra") == null )
+            {
+                Team contra = new Team("Bill", "Lance");
+                contra.TeamName = "Contra";
+                teams.Add(contra);
             }
         }
 
-        /// <summary>Inserts a Team into the tournament
+        /// <summary>
+        /// Inserts a Team into the tournament
         /// </summary>
         /// <param name="t">Some Team to be placed in the tourney</param>
-        public bool addTeamToTournament( Team t ) {
-            for (int i = 0; i < InTourney.Length; i++) {
-                if (InTourney[i] == t) {
+        public bool addTeamToTournament(Team t)
+        {
+            for( int i = 0; i < InTourney.Length; i++ )
+            {
+                if( InTourney[i] == t )
+                {
                     return false;
                 }
             }
-            for (int i = 0; i < InTourney.Length; i++) {
-                if (InTourney[i] == null) {
+            for( int i = 0; i < InTourney.Length; i++ )
+            {
+                if( InTourney[i] == null )
+                {
                     InTourney[i] = t;
                     return true;
                 }
@@ -255,25 +289,29 @@ namespace BPMS {
         /// </summary>
         /// <param name="t">The team to insert</param>
         /// <param name="seed">the seeding to give the team</param>
-        public void seedTeamToTournament( Team t, int seed ) {
+        public void seedTeamToTournament(Team t, int seed)
+        {
             //We can assume that they will be entering the number they want not the index
             seed -= 1;
             //avoid our index out of bounds
-            if (seed >= InTourney.Length)
+            if( seed >= InTourney.Length )
                 seed = InTourney.Length - 1;
-            if (InTourney[seed] != null) {
-                DialogResult result = MessageBox.Show( "There is already a Team in the seed. Do you want to replace it?" +
+            if( InTourney[seed] != null )
+            {
+                DialogResult result = MessageBox.Show("There is already a Team in the seed. Do you want to replace it?" +
                     " Yes-Replace, No-Push everything down, Cancel-will cancel the action.",
-                    "Seed already taken", MessageBoxButtons.YesNoCancel );
-                switch (result) {
+                    "Seed already taken", MessageBoxButtons.YesNoCancel);
+                switch( result )
+                {
                     case DialogResult.Yes:
                         InTourney[seed] = t;
                         break;
                     case DialogResult.No:
                         Team cur = InTourney[seed], next;
                         InTourney[seed] = t;
-                        for (int i = seed + 1; i < InTourney.Length; i++) {
-                            if (i + 1 >= InTourney.Length)
+                        for( int i = seed + 1; i < InTourney.Length; i++ )
+                        {
+                            if( i + 1 >= InTourney.Length )
                                 break;
                             next = InTourney[i + 1];
                             InTourney[i + 1] = cur;
@@ -283,32 +321,38 @@ namespace BPMS {
                     case DialogResult.Cancel:
                         break;
                 }
-            } else {
+            }
+            else
+            {
                 InTourney[seed] = t;
             }
         }
 
-        /// <summary> Loads data from a saved XML file
+        /// <summary> 
+        /// Loads data from a saved XML file
         /// </summary>
         /// <param name="theSaveFile"> path of the XML file</param>
-        public void loadData( ) {
-            try {
+        public void loadData()
+        {
+            try
+            {
                 XmlDocument xmlDoc = new XmlDocument();
 
-                FileStream fsxml = new FileStream( this.SaveFile, FileMode.Open,
-                                      FileAccess.ReadWrite,
-                                      FileShare.ReadWrite );
-                xmlDoc.Load( fsxml );
+                FileStream fsxml = new FileStream(SaveFile, FileMode.Open, FileAccess.ReadWrite, FileShare.ReadWrite);
+                xmlDoc.Load(fsxml);
 
-                XmlNodeList xnl = xmlDoc.GetElementsByTagName( "system" );
+                XmlNodeList xnl = xmlDoc.GetElementsByTagName("system");
                 XmlAttributeCollection xnc = xnl[0].Attributes;
 
-                if (xnc["admin_pass"].Value == "") {
+                if( xnc["admin_pass"].Value == "" )
+                {
                     Password = "";
-                    this.PassIsSet = false;
-                } else {
+                    PassIsSet = false;
+                }
+                else
+                {
                     Password = xnc["admin_pass"].Value;
-                    this.PassIsSet = true;
+                    PassIsSet = true;
                 }
 
                 Theme = (xnc["theme"].Value != "") ? xnc["theme"].Value : "default";
@@ -316,30 +360,33 @@ namespace BPMS {
 
                 PassToRemove = (xnc["removal_type"].Value == "True") ? true : false;
 
-                xnl = xmlDoc.GetElementsByTagName( "Team" );
-                foreach (XmlNode teamNode in xnl) {
+                xnl = xmlDoc.GetElementsByTagName("Team");
+                foreach( XmlNode teamNode in xnl )
+                {
                     xnc = teamNode.Attributes;
-                    Team xTeam = new Team( System.Convert.ToInt32( xnc["id"].Value ),
+                    Team xTeam = Team.FromXML(Convert.ToInt32(xnc["id"].Value),
                                            xnc["name"].Value,
                                            xnc["p1"].Value,
                                            xnc["p2"].Value,
-                                           System.Convert.ToInt32( xnc["w"].Value ),
-                                           System.Convert.ToInt32( xnc["l"].Value ),
-                                           System.Convert.ToInt32( xnc["streak"].Value ) );
-                    teams.Add( xTeam );
+                                           Convert.ToInt32(xnc["w"].Value),
+                                           Convert.ToInt32(xnc["l"].Value),
+                                           Convert.ToInt32(xnc["streak"].Value));
+                    teams.Add(xTeam);
                 }
-            } catch (Exception) {
-                this.PassIsSet = false;
-                //passValid = false;
+            }
+            catch( Exception )
+            {
+                PassIsSet = false;
                 Password = "";
                 MulitQueue = false;
                 PassToRemove = true;
             }
         }
 
-        /// <summary> Writes all of the game data to the given save file
+        /// <summary> 
+        /// Writes all of the game data to the given save file
         /// </summary>
-        public void saveData( ) {
+        public void saveData() {
             XmlDocument xmlDoc = new XmlDocument();
             XmlElement category;
             XmlAttribute attrib;
@@ -364,7 +411,7 @@ namespace BPMS {
             category.SetAttributeNode( attrib );
 
             attrib = xmlDoc.CreateAttribute( "admin_pass" );
-            attrib.Value = (this.PassIsSet) ? Password : "";
+            attrib.Value = (PassIsSet) ? Password : "";
             category.SetAttributeNode( attrib );
 
             attrib = xmlDoc.CreateAttribute( "multi_queue" );
@@ -379,53 +426,56 @@ namespace BPMS {
             xmlDoc.DocumentElement.InsertAfter( category,
                                    xmlDoc.DocumentElement.LastChild );
 
-            foreach (Team curTeam in teams) {
+            foreach( Team curTeam in teams )
+            {
 
-                if (curTeam.Name == "Contra" && curTeam.player1 == "Bill"
-                    && curTeam.player2 == "Lance") {
+                if( curTeam.TeamName == "Contra" && curTeam.Player1 == "Bill"
+                    && curTeam.Player2 == "Lance" )
+                {
 
-                } else {
+                }
+                else
+                {
 
 
-                    category = xmlDoc.CreateElement( "Team" );
+                    category = xmlDoc.CreateElement("Team");
 
-                    attrib = xmlDoc.CreateAttribute( "id" );
+                    attrib = xmlDoc.CreateAttribute("id");
                     attrib.Value = curTeam.Id + "";
-                    category.SetAttributeNode( attrib );
+                    category.SetAttributeNode(attrib);
 
-                    attrib = xmlDoc.CreateAttribute( "name" );
-                    attrib.Value = curTeam.Name + "";
-                    category.SetAttributeNode( attrib );
+                    attrib = xmlDoc.CreateAttribute("name");
+                    attrib.Value = curTeam.TeamName + "";
+                    category.SetAttributeNode(attrib);
 
-                    attrib = xmlDoc.CreateAttribute( "p1" );
-                    attrib.Value = curTeam.player1 + "";
-                    category.SetAttributeNode( attrib );
+                    attrib = xmlDoc.CreateAttribute("p1");
+                    attrib.Value = curTeam.Player1 + "";
+                    category.SetAttributeNode(attrib);
 
-                    attrib = xmlDoc.CreateAttribute( "p2" );
-                    attrib.Value = curTeam.player2 + "";
-                    category.SetAttributeNode( attrib );
+                    attrib = xmlDoc.CreateAttribute("p2");
+                    attrib.Value = curTeam.Player2 + "";
+                    category.SetAttributeNode(attrib);
 
-                    attrib = xmlDoc.CreateAttribute( "w" );
+                    attrib = xmlDoc.CreateAttribute("w");
                     attrib.Value = curTeam.Wins + "";
-                    category.SetAttributeNode( attrib );
+                    category.SetAttributeNode(attrib);
 
-                    attrib = xmlDoc.CreateAttribute( "l" );
+                    attrib = xmlDoc.CreateAttribute("l");
                     attrib.Value = curTeam.Losses + "";
-                    category.SetAttributeNode( attrib );
+                    category.SetAttributeNode(attrib);
 
-                    attrib = xmlDoc.CreateAttribute( "streak" );
+                    attrib = xmlDoc.CreateAttribute("streak");
                     attrib.Value = curTeam.MaxStreak + "";
-                    category.SetAttributeNode( attrib );
+                    category.SetAttributeNode(attrib);
 
-                    xmlDoc.DocumentElement.InsertAfter( category, xmlDoc.DocumentElement.LastChild );
-
-
+                    xmlDoc.DocumentElement.InsertAfter(category, xmlDoc.DocumentElement.LastChild);
                 }
             }
 
             ////////////////////////////////////////////////////
             // Insert winners, challengers and queue into XML //
-            ////////////////////////////////////////////////////         
+            //////////////////////////////////////////////////// 
+                    
             #region TODO
             /* XmlElement oldCategory;// = category;
             oldCategory = xmlDoc.CreateElement( "", "WINNERS", "" );
@@ -488,7 +538,7 @@ namespace BPMS {
             //} */
             #endregion
 
-            FileStream fsxml = new FileStream( this.SaveFile, FileMode.Truncate,
+            FileStream fsxml = new FileStream(SaveFile, FileMode.Truncate,
                                   FileAccess.Write,
                                   FileShare.ReadWrite );
             xmlDoc.Save( fsxml );

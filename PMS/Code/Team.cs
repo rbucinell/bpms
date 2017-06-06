@@ -9,15 +9,15 @@ namespace BPMS {
 
     public class TeamEvent : EventArgs {
         public TeamEvent( string m ) {
-            this.Message = m;
+            Message = m;
         }
         public string Message{ get;set;}
     }
     public class Team {
 
         //Variables
-        public string player1;
-        public string player2;
+        protected string player1;
+        protected string player2;
 
         protected bool wonPrevious;
         protected int longestStreak;
@@ -51,7 +51,7 @@ namespace BPMS {
             wonPrevious = false;
             timeOnTable = new TimeSpan();
             teamName = null;
-            this.Achievement += new Team.TeamEventHandler( catchAchievement );
+            Achievement += new Team.TeamEventHandler( catchAchievement );
         }
 
         /// <summary>
@@ -62,34 +62,49 @@ namespace BPMS {
         /// <param name="xP1">First Team Player</param>
         /// <param name="xP2">Second Team Player</param>
         /// <param name="streak">Team's Record Streak</param>
-        public Team( int xId, string xName, string xP1, string xP2, int wins, int losses, int streak ) {
-            id = xId;
-            if (xId >= PMSmain.teamIDs) {
+        public static Team FromXML(int xId, string xName, string xP1, string xP2, int wins, int losses, int streak)
+        {
+            Team t = new Team(xP1, xP2);
+            if( xId >= PMSmain.teamIDs )
+            {
                 PMSmain.teamIDs = xId + 1;
             }
-            player1 = xP1;
-            player2 = xP2;
-            currentStreak = 0;
-            longestStreak = streak;
-            wonPrevious = false;
-            timeOnTable = new TimeSpan();
-            xName = xName.Replace(" ","");
-            teamName = (xName == "")? null : xName;
-            totalLoss = losses;
-            totalWin = wins;
-            this.Achievement += new Team.TeamEventHandler( catchAchievement );
+            t.id = xId;
+            t.currentStreak = 0;
+            t.longestStreak = streak;
+            t.wonPrevious = false;
+            t.timeOnTable = new TimeSpan();
+            t.teamName = (xName == "") ? null : xName;
+            t.totalLoss = losses;
+            t.totalWin = wins;
+            return t;
         }
         #endregion
 
         #region Properties
-        public string Name {
+        public string TeamName
+        {
             get { return teamName; }
             set { teamName = value; }
         }
+
+        public string Player1
+        {
+            get { return player1; }
+            protected set { player1 = value; }
+        }
+
+        public string Player2
+        {
+            get { return player2; }
+            protected set { player2 = value; }
+        }
+
         /// <summary>
         /// Accessor for toatl wins by the team
         /// </summary>
-        public int Wins {
+        public int Wins
+        {
             get { return totalWin; }
         }
 
@@ -120,16 +135,19 @@ namespace BPMS {
         public int MaxStreak {
             get { return longestStreak; }
         }
-        #endregion
 
-        public double getRecord() {
-            if (totalWin + totalLoss == 0) {
-                return .000;
-            } else {
-                return Math.Round( ((double)totalWin / ((double)(totalWin + totalLoss)) + .00000), 3 );
+        /// <summary>
+        /// Gets the current Record of the team.
+        /// </summary>
+        public double Record
+        {
+            get
+            {
+                return totalWin + totalLoss == 0 ? .000 : Math.Round((totalWin / (double)(totalWin + totalLoss)), 3);
             }
         }
 
+        #endregion
 
         /// <summary>
         /// This function will reset all of the Teams stats to 0
@@ -274,7 +292,7 @@ namespace BPMS {
         /// </summary>
         /// <returns>returns a stirng with the id and player's names</returns>
         public string toStringPlayers() {
-            return this.idDisplay() + " " + this.recordDisplay() + " " + playersDisplay();
+            return idDisplay() + " " + recordDisplay() + " " + playersDisplay();
         }
 
         /// <summary>
@@ -282,35 +300,35 @@ namespace BPMS {
         /// </summary>
         /// <returns>returns a stirng with the id and player's names</returns>
         public string toStringTeamName() {
-            if (this.Name != null && this.Name != " " && this.Name != "_") {
-                return this.idDisplay() + " " + this.recordDisplay() + " " + this.Name;
+            if ( TeamName != null && TeamName != " " && TeamName != "_") {
+                return idDisplay() + " " + recordDisplay() + " " + TeamName;
             } else {
-                return this.idDisplay() + " " + this.recordDisplay() + " " + this.playersDisplay();
+                return idDisplay() + " " + recordDisplay() + " " + playersDisplay();
             }
         }
         public string toStringShowAll() {
-            if (this.Name == "") {
-                return this.idDisplay() + " " + playersDisplay();
+            if ( TeamName == "") {
+                return idDisplay() + " " + playersDisplay();
             } else {
-                return this.idDisplay() + " \"" + this.Name + "\" " + playersDisplay();
+                return idDisplay() + " \"" + TeamName + "\" " + playersDisplay();
             }
         }
 
         public string TeamNameSimple() {
-            if (this.Name != null && this.Name != " " && this.Name != "_") {
-                return this.Name;
+            if ( TeamName != null && TeamName != " " && TeamName != "_") {
+                return TeamName;
             } else {
-                return this.playersDisplay();
+                return playersDisplay();
             }
         }
 
         public string TeamPlayersSimple() {
-            return this.playersDisplay();
+            return playersDisplay();
         }
 
-        protected string idDisplay() { return "["+ this.id +"]"; }
-        protected string recordDisplay() { return "(" + ((getRecord() == 0) ? ".000" : getRecord() + "") + ")"; }
-        protected string playersDisplay() { return player1 + " / " + player2; }
+        protected string idDisplay() { return String.Format("[{0}]", Id); }
+        protected string recordDisplay() { return String.Format("({0})", Record.ToString("F3")); }
+        protected string playersDisplay() { return String.Format("{0} / {1}", Player1, Player2); }
 
         #endregion
     }

@@ -1,19 +1,13 @@
 ﻿///view reports for other teams (search or top10);
 ///Tournament Mode!
 using System;
-using System.Security.Cryptography;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Windows.Forms;
-using System.Collections;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Xml;
-using System.IO;
+using System.Windows.Forms;
 
-namespace BPMS {
+namespace BPMS
+{
 
     /// <summary>
     /// Delete type Enum, for different deletion option of queued teams
@@ -52,8 +46,8 @@ namespace BPMS {
         public Team recordHolder = null;
         public static DateTime startGame, endGame;
 
-
         private bool hasPromptedSave = false;
+
         /// <summary>
         /// Constructor for new Main Gui
         /// </summary>
@@ -140,8 +134,8 @@ namespace BPMS {
             } else {
                 leftWinnerButton.Enabled = true;
                 winnersTeamIdTexBox.Text = systemData.Winner.Id + "";
-                winnersPlayer1TexBox.Text = systemData.Winner.player1;
-                winnersPlayer2TexBox.Text = systemData.Winner.player2;
+                winnersPlayer1TexBox.Text = systemData.Winner.Player1;
+                winnersPlayer2TexBox.Text = systemData.Winner.Player2;
             }
             if( systemData.Challenger == null ) {
                 rightWinnerButton.Enabled = false;
@@ -151,8 +145,8 @@ namespace BPMS {
             } else {
                 rightWinnerButton.Enabled = true;
                 challengersTeamIdTexBox.Text = systemData.Challenger.Id + "";
-                challengerPlayer1TexBox.Text = systemData.Challenger.player1;
-                challengerPlayer2TexBox.Text = systemData.Challenger.player2;
+                challengerPlayer1TexBox.Text = systemData.Challenger.Player1;
+                challengerPlayer2TexBox.Text = systemData.Challenger.Player2;
             }
         }
 
@@ -322,9 +316,9 @@ namespace BPMS {
 
             //If Team name already exists, make it orange and display error
             foreach (Team team in systemData.AllTeams) {
-                if (team.Name == newTeamNameTextbox.Text || team.Name == newTeamNameTextbox.Text) {
+                if (team.TeamName == newTeamNameTextbox.Text || team.TeamName == newTeamNameTextbox.Text) {
                     newTeamNameTextbox.BackColor = Color.Orange;
-                    newTeamNameTextbox.Text = "<In use: " + team.Name + ">";
+                    newTeamNameTextbox.Text = "<In use: " + team.TeamName + ">";
                     isBadArgs = true;
                     break;
                 }
@@ -334,7 +328,7 @@ namespace BPMS {
                 Team temp = new Team(newTeamP1TextBox.Text, newTeamP2TextBox.Text);
 
                 if (newTeamNameTextbox.Text != "") {
-                    temp.Name = newTeamNameTextbox.Text;
+                    temp.TeamName = newTeamNameTextbox.Text;
                 }
 
                 newTeamNameTextbox.Text = "";
@@ -421,7 +415,7 @@ namespace BPMS {
 
                     /////////////Konami Easter Egg ///////////////
                 if (teamname == "uuddlrlrba" || teamname == "upupdowndownleftrightleftrightba") {
-                    systemData.addContra();
+                    systemData.AddContraTeam();
                     teamNameInputBox.Text = "";
                     pictureBox1.Image = new Bitmap( BPMS.Properties.Resources.bill_lance_code );
                     temp = systemData.getTeam( "Contra" );

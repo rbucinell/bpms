@@ -455,7 +455,7 @@ namespace BPMS {
 
             //Look through the teams, if the name is taken show err
             foreach (Team team in myParent.Data.AllTeams) {
-                if (team.Name == tourneyTNametextBox.Text) {
+                if (team.TeamName == tourneyTNametextBox.Text) {
                     tourneyTNametextBox.BackColor = Color.Orange;
                     tourneyTNametextBox.Text = "<In use: " + tourneyTNametextBox.Text + ">";
                     isBadArgs = true;
@@ -467,7 +467,7 @@ namespace BPMS {
                 Team temp = new Team( tourneyP1textBox.Text, tourneyP2textBox.Text );
 
                 if( tourneyTNametextBox.Text != ""){
-                    temp.Name = tourneyTNametextBox.Text; 
+                    temp.TeamName = tourneyTNametextBox.Text; 
                 }
 
                 //temp.Achievement += new Team.TeamEventHandler( myParent.catchAchievement );
@@ -532,7 +532,7 @@ namespace BPMS {
 
                     /////////////Konami Easter Egg ///////////////
                     if (teamname == "uuddlrlrba" || teamname == "upupdowndownleftrightleftrightba") {
-                        myParent.Data.addContra();
+                        myParent.Data.AddContraTeam();
                         //myParent.teamsNameID.Add( contra.Name, contra.Id );
                         tourneyReturnTNametextBox.Text = "";
                         pictureBox1.Image = new Bitmap( BPMS.Properties.Resources.bill_lance_code );
@@ -698,7 +698,7 @@ namespace BPMS {
                 int highestValIndex = counter;
                 for( int i = counter; i < team.Length; i++ ) {
                     //set the highestValIndex to the index that contains the team with the highest record (want best record first)
-                    highestValIndex = ( team[highestValIndex].getRecord() >= team[i].getRecord() ) ? highestValIndex : i;
+                    highestValIndex = ( team[highestValIndex].Record >= team[i].Record ) ? highestValIndex : i;
                 }
                 //swap that team with the current position
                 Team temp = team[counter];
