@@ -83,6 +83,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Code\ByeTeam.cs" />
+    <Compile Include="Code\Theme.cs" />
     <Compile Include="Code\TourneyHandler.cs" />
     <Compile Include="Code\Unused\TournamentManager.cs" />
     <Compile Include="Code\TreeManager.cs" />

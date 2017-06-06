@@ -421,13 +421,13 @@
             this.mainToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.mainToolStripMenuItem.Enabled = false;
             this.mainToolStripMenuItem.Name = "mainToolStripMenuItem";
-            this.mainToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.mainToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.mainToolStripMenuItem.Text = "Main";
             // 
             // tournamentToolStripMenuItem
             // 
             this.tournamentToolStripMenuItem.Name = "tournamentToolStripMenuItem";
-            this.tournamentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.tournamentToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.tournamentToolStripMenuItem.Text = "Tournament";
             this.tournamentToolStripMenuItem.Click += new System.EventHandler(this.switchMode);
             // 
@@ -573,7 +573,7 @@
             this.challengersTeamIdTexBox.Location = new System.Drawing.Point(493, 24);
             this.challengersTeamIdTexBox.Name = "challengersTeamIdTexBox";
             this.challengersTeamIdTexBox.ReadOnly = true;
-            this.challengersTeamIdTexBox.Size = new System.Drawing.Size(45, 20);
+            this.challengersTeamIdTexBox.Size = new System.Drawing.Size(163, 20);
             this.challengersTeamIdTexBox.TabIndex = 23;
             this.challengersTeamIdTexBox.TabStop = false;
             this.challengersTeamIdTexBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -585,7 +585,7 @@
             this.winnersTeamIdTexBox.Location = new System.Drawing.Point(57, 24);
             this.winnersTeamIdTexBox.Name = "winnersTeamIdTexBox";
             this.winnersTeamIdTexBox.ReadOnly = true;
-            this.winnersTeamIdTexBox.Size = new System.Drawing.Size(45, 20);
+            this.winnersTeamIdTexBox.Size = new System.Drawing.Size(166, 20);
             this.winnersTeamIdTexBox.TabIndex = 20;
             this.winnersTeamIdTexBox.TabStop = false;
             this.winnersTeamIdTexBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
