@@ -384,7 +384,7 @@ namespace BPMS {
         }
 
         private void donateToolStripMenuItem_Click(object sender, EventArgs e) {
-            myParent.donateNowButton(sender, e);
+            myParent.DonateButton_Click(sender, e);
         }
 
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e) {

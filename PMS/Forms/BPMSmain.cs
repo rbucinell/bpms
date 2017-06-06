@@ -926,25 +926,12 @@ namespace BPMS
             about.ShowDialog( this );
         }
 
-        /// <summary> Event handler for clicking the Donate "Button"
+        /// <summary> 
+        /// Event handler for clicking the Donate "Button"
         /// </summary>
-        public void donateNowButton( object sender, EventArgs e ) {
-
-            string url = "";
-            string business = "rmb1201@rit.edu";
-            string description = "A small token of thanks";
-            string country = "US";
-            string currency = "USD";
-
-            url += "https://www.paypal.com/cgi-bin/webscr" +
-                "?cmd=" + "_donations" +
-                "&business=" + business +
-                "&lc=" + country +
-                "&item_name=" + description +
-                "&currency_code=" + currency +
-                "&bn=" + "PP%2dDonationsBF";
-
-            System.Diagnostics.Process.Start( url );
+        public void DonateButton_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.paypal.me/rbucinell");
         }
 
         /// <summary> Event handeler for dpressing mouse over donate button

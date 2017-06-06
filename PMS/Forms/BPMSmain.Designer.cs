@@ -332,7 +332,7 @@
             this.donateToolStripMenuItem1.Name = "donateToolStripMenuItem1";
             this.donateToolStripMenuItem1.Size = new System.Drawing.Size(159, 22);
             this.donateToolStripMenuItem1.Text = "Donate";
-            this.donateToolStripMenuItem1.Click += new System.EventHandler(this.donateNowButton);
+            this.donateToolStripMenuItem1.Click += new System.EventHandler(this.DonateButton_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -753,7 +753,7 @@
             this.donatePixButton.Size = new System.Drawing.Size(95, 38);
             this.donatePixButton.TabIndex = 21;
             this.donatePixButton.TabStop = false;
-            this.donatePixButton.Click += new System.EventHandler(this.donateNowButton);
+            this.donatePixButton.Click += new System.EventHandler(this.DonateButton_Click);
             this.donatePixButton.MouseDown += new System.Windows.Forms.MouseEventHandler(this.mouseDownDonateClick);
             this.donatePixButton.MouseUp += new System.Windows.Forms.MouseEventHandler(this.mouseDonateClick);
             // 
