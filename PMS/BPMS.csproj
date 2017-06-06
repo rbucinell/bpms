@@ -228,6 +228,7 @@
     <None Include="Resources\4manTourneyBG.bmp" />
     <None Include="Resources\8manTourneyBG.bmp" />
     <None Include="Resources\16manTourneyBG.bmp" />
+    <None Include="Resources\bpms_ss.png" />
     <Content Include="Resources\logo.ico" />
     <Content Include="Resources\tournamentLogo.ico" />
     <None Include="Resources\mlbp_wo_border.gif" />
