@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
 
-namespace BPMS.Code {
+namespace BPMS.Code
+{
     class TournamentManager {
         public enum TSize{
             St = 8,

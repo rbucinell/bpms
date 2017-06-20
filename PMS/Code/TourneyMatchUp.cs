@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Drawing;
-using BPMS.Code;
+using System.Windows.Forms;
 
-namespace BPMS {
+namespace BPMS
+{
 
     public enum MatchState {
         Empty,
@@ -15,8 +12,8 @@ namespace BPMS {
         VictorFound
     };
 
-    public class TourneyMatchUp : Panel{
-
+    public class TourneyMatchUp : Panel
+    {
         public const int MATCH_HEIGHT = 121;
         public const int MATCH_WIDTH = 55;
 
