@@ -1,31 +1,27 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
 using System.Drawing;
+using System.Windows.Forms;
 
-namespace BPMS {
-
-    public class TeamEvent : EventArgs {
-        public TeamEvent( string m ) {
+namespace BPMS
+{
+    public class TeamEvent : EventArgs
+    {
+        public TeamEvent( string m )
+        {
             Message = m;
         }
         public string Message{ get;set;}
     }
+
     public class Team {
 
         //Variables
-        protected string player1;
-        protected string player2;
-
         protected bool wonPrevious;
         protected int longestStreak;
         protected int currentStreak;
         protected int rememberStreak;
         protected string teamName;
         protected int id;
-        protected int totalLoss, totalWin;
 
 
         protected TimeSpan timeOnTable;
@@ -42,16 +38,16 @@ namespace BPMS {
         /// <param name="p2">Second Teamate</param>
         public Team(string p1, string p2) {
             id = BPMSMain.teamIDs++;
-            player1 = p1;
-            player2 = p2;
+            Player1 = p1;
+            Player2 = p2;
             currentStreak = 0;
             longestStreak = 0;
-            totalLoss = 0;
-            totalWin = 0;
+            Losses = 0;
+            Wins = 0;
             wonPrevious = false;
             timeOnTable = new TimeSpan();
             teamName = null;
-            Achievement += new Team.TeamEventHandler( catchAchievement );
+            Achievement += new TeamEventHandler( catchAchievement );
         }
 
         /// <summary>
@@ -75,29 +71,37 @@ namespace BPMS {
             t.wonPrevious = false;
             t.timeOnTable = new TimeSpan();
             t.teamName = (xName == "") ? null : xName;
-            t.totalLoss = losses;
-            t.totalWin = wins;
+            t.Losses = losses;
+            t.Wins = wins;
             return t;
         }
         #endregion
 
         #region Properties
-        public string TeamName
-        {
-            get { return teamName; }
-            set { teamName = value; }
-        }
 
+        
+        /// <summary>
+        /// Name of the first teammate
+        /// </summary>
         public string Player1
         {
-            get { return player1; }
-            protected set { player1 = value; }
+            get; protected set;
         }
 
+        /// <summary>
+        /// Name of the second teammate
+        /// </summary>
         public string Player2
         {
-            get { return player2; }
-            protected set { player2 = value; }
+            get; protected set;
+        }
+
+        /// <summary>
+        /// Team name of designated by the players
+        /// </summary>
+        public string TeamName
+        {
+            get; set;
         }
 
         /// <summary>
@@ -105,14 +109,15 @@ namespace BPMS {
         /// </summary>
         public int Wins
         {
-            get { return totalWin; }
+            get; protected set;
         }
 
         /// <summary>
         /// Accessor for toatl losses by the team
         /// </summary>
-        public int Losses {
-            get { return totalLoss; }
+        public int Losses
+        {
+            get; protected set;
         }
 
         /// <summary>
@@ -143,7 +148,7 @@ namespace BPMS {
         {
             get
             {
-                return totalWin + totalLoss == 0 ? .000 : Math.Round((totalWin / (double)(totalWin + totalLoss)), 3);
+                return (Wins + Losses) == 0 ? .000 : Math.Round((Wins / (double)(Wins + Losses)), 3);
             }
         }
 
@@ -155,8 +160,8 @@ namespace BPMS {
         public void destroyStats() {
             wonPrevious = false;
             currentStreak = 0;
-            totalLoss = 0;
-            totalWin = 0;
+            Losses = 0;
+            Wins = 0;
             longestStreak = 0;
             timeOnTable = new TimeSpan( 0 );
         }
@@ -202,7 +207,7 @@ namespace BPMS {
                 wonPrevious = true;
             }
             rememberStreak = currentStreak;
-            totalWin++;
+            Wins++;
         }
         public void winGame( TimeSpan t ) {
             timeOnTable += t;
@@ -217,7 +222,7 @@ namespace BPMS {
             rememberStreak = currentStreak;
             currentStreak = 0;
             wonPrevious = false;
-            totalLoss++;
+            Losses++;
         }
 
         /// <summary>
@@ -237,7 +242,7 @@ namespace BPMS {
                 wonPrevious = false;
             else
                 wonPrevious = true;
-            totalWin--;
+            Wins--;
         }
 
         public void undoLoss() {
@@ -246,7 +251,7 @@ namespace BPMS {
                 wonPrevious = false;
             else
                 wonPrevious = true;
-            totalLoss--;
+            Losses--;
         }
 
         public void catchAchievement( object sender, TeamEvent te ) {
